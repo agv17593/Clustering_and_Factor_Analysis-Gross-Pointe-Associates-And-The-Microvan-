@@ -274,7 +274,7 @@ CrossTable(x = mv$cluster, y = mv$numkids, expected = TRUE, prop.r = FALSE, prop
 ```
 
 
-## For Educatio Group
+## For Education Group
 ```{r}
 CrossTable(x = mv$cluster, y = mv$educ_group, expected = TRUE, prop.r = FALSE, prop.c = FALSE, prop.t = FALSE)
 ```
