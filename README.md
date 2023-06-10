@@ -23,7 +23,7 @@ library(haven)
 # Reading the dataset
 
 ```{r}
-mv <- read_dta("/Users/naman/Desktop/microvan.dta")
+mv <- read_csv("/cloud/project/microvan.csv")
 
 mv[1] <-NULL
 
