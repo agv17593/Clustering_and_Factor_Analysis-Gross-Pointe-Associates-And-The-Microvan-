@@ -50,16 +50,6 @@ summary(model)
 
 # Factor Analysis
 
-## Pre-factor diagnostics
-
-```{r}
-# Bartlett test of sphericity
-bart_spher(mv[,colnames(mv)[2:31]])
-
-# Kaiser-Meyer-Olkin Measure of sampling adequacy
-KMOS(mv[,colnames(mv)[2:31]])
-```
-
 ## Determine the number of factors
 
 ```{r}
