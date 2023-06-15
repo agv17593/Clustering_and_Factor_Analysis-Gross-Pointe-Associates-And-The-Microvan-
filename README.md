@@ -203,8 +203,10 @@ sapply(c("RC1", "RC2","RC4"), function(n) k$centers[, n]*sd(pc$scores[,n]) + mea
 
 ## PCA Scores
 ```{r}
+
 PCA.scores = factor.scores(vars, unclass(PCA$loadings))$scores
 PCA.scores
+mv.scores <- cbind(mv, PCA.scores)
 ```
 
 ## Residual plot for PC1, PC2 & PC3
