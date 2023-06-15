@@ -170,7 +170,12 @@ plot(set(as.dendrogram(h), # select the cluster solution
      ylab = "Distance",
      main = "Dendrogram",          # specify the plot title
      cex = 0.3)                    # specify the label size
-rect.hclust(hc.single, k = 5, border = "darkred")  # draw red borders around the clusters
+rect.hclust(h, k = 5, border = "darkred")  # draw red borders around the clusters
+```
+
+```{r}
+h.cut <- cutree(h, 5)
+table(h.cut)
 ```
 
 ## First, standardize the input variables (z-scores)
