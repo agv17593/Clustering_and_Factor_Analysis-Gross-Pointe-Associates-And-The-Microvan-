@@ -165,7 +165,22 @@ h <- hclust(d, method = "ward.D2")
 ## View dendogram
 
 ```{r}
-plot(h, xlab = "Respondent")
+plot(as.dendrogram(h),             # select the cluster solution
+     ylab = "Distance",
+     main = "Dendrogram",          # specify the plot title
+     cex = 0.3)                    # specify the label size
+```
+
+```{r}
+install.packages("dendextend")
+library(dendextend)
+plot(set(as.dendrogram(h), # select the cluster solution
+         "branches_k_color",       # color the cluster branches for the number of clusters (k = 4)
+         k = 5),                   # specify the number of clusters
+     ylab = "Distance",
+     main = "Dendrogram",          # specify the plot title
+     cex = 0.3)                    # specify the label size
+rect.hclust(hc.single, k = 5, border = "darkred")  # draw red borders around the clusters
 ```
 
 ## First, standardize the input variables (z-scores)
