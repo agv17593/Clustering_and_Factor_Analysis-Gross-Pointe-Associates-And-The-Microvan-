@@ -201,7 +201,60 @@ k$size
 sapply(c("RC1", "RC2","RC4"), function(n) k$centers[, n]*sd(pc$scores[,n]) + mean(pc$scores[,n]))
 ```
 
+## PCA Scores
+```{r}
+PCA.scores = factor.scores(vars, unclass(PCA$loadings))$scores
+PCA.scores
+```
 
+## Residual plot for PC1, PC2 & PC3
+```{r}
+plot(x = mv.scores$PC1, 
+      y = mv.scores$PC2,
+      xlab = "PC1", ylab = "PC2",
+      xlim = c(-3, 7), ylim = c(-3, 3), 
+      pch = 16, cex = 1, col = "blue")
+
+ abline(h = 0, col = "grey")
+ abline(v = 0, col = "grey")
+ 
+ # add point labels
+ text(x = mv.scores$PC1, 
+      y = mv.scores$PC2, 
+      labels = mv.scores$rn,
+      cex = 1, 
+      adj = 1.2, 
+      col = "black")
+
+plot(x = L1$PC2, y = L1$PC3, 
+            col ="darkblue",  
+            pch = 16,        # plot symbol: 16 = filled circle
+            cex = 1,         # size of plot symbols
+            xlab = "PC2",    # a title for the x axis
+            ylab = "PC3",    # a title for the y axis
+            xlim = c(-1,1),  # x axis values from -1 to 1
+            ylim = c(-1,1))  # y axis values from -1 to 1
+     text(L1$PC2, L1$PC3, 
+                  labels = L$rn,
+                  pos = 3, 
+                  cex = 0.8, 
+                  col = "darkred")
+ 
+ plot(x = L1$PC1, y = L1$PC3, 
+            col ="darkblue",  
+            pch = 16,        # plot symbol: 16 = filled circle
+            cex = 1,         # size of plot symbols
+            xlab = "PC1",    # a title for the x axis
+            ylab = "PC3",    # a title for the y axis
+            xlim = c(-1,1),  # x axis values from -1 to 1
+            ylim = c(-1,1))  # y axis values from -1 to 1
+     text(L1$PC1, L1$PC3, 
+                  labels = L$rn,
+                  pos = 3, 
+                  cex = 0.8, 
+                  col = "darkred")
+
+```
 # Crosstab analysis on cluster segements versus likeness
 
 ```{r }
